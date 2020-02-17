@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Sudoku solver JS</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+    
+<div class="container">
+    <h1>Hello my friend :) </h1>
+    <p>Feel free to input the sudoku numbers you have below and let the tool solve it for you</p>
+    <p>This will solve sudoku's puzzle with range 9 x 9 only</p>
+
+    <!-- Sudoku's table -->
+    <div id="puzzle">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered" id="sudoku">
+                    <tbody>
+
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+                        <tr>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                            <td class="col-sm-1"><input class="col-sm-12" maxlength="1"  /></td>
+                        </tr>
+
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!--// Sudoku's table -->
+
+    <!-- First time loading zero all inputs-->
+    <script>/*$('input').val('0');*/</script>
+
+
+    <!-- buttons -->
+    <button class="btn btn-success" onclick="solve()">Solve</button>
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" onclick="$('input').val('0');">
+        Reset  
+    </button>
+    <!--// buttons -->
+    
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h3 class="modal-title" id="exampleModalCenterTitle">Your table is empty now</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                <p>Please feel free to keep using this site to solve your Sudoku puzzles</p>
+                <p>Thanks for using :)</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--// Modal -->
+
+<!-- end -->
+</div>
+
+<!-- JS script -->
+<script src="solver.js"></script>
+<div class="navbar navbar-default navbar-fixed-bottom">
+    <div class="container">
+         Made by Bruno Dantas | Source code: <a href="https://github.com/brunotdantas/Sudoku-solver-js">here</a>
+    </div>
+</div>
+
+</body>
+</html> 
