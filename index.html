@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -15,6 +16,7 @@
     <h1>Hello my friend :) </h1>
     <p>Feel free to input the sudoku numbers you have below and let the tool solve it for you</p>
     <p>This will solve sudoku's puzzle with range 9 x 9 only</p>
+    <p>A field with value 0 means BLANK</p>
 
     <!-- Sudoku's table -->
     <div id="puzzle">
@@ -131,13 +133,15 @@
     </div>
     <!--// Sudoku's table -->
 
-    <!-- First time loading zero all inputs-->
-    <script>/*$('input').val('0');*/</script>
+
+    <div id="solved-table">
+
+    </div>
 
 
     <!-- buttons -->
     <button class="btn btn-success" onclick="solve()">Solve</button>
-    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" onclick="$('input').val('0');">
+    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter" onclick="$('input').val('0');document.getElementById('solved-table').innerHTML = '';">
         Reset  
     </button>
     <!--// buttons -->
@@ -170,8 +174,14 @@
 <!-- JS script -->
 <script src="solver.js"></script>
 <div class="navbar navbar-default navbar-fixed-bottom">
-    <div class="container">
-         Made by Bruno Dantas | Source code: <a href="https://github.com/brunotdantas/Sudoku-solver-js">here</a>
+    <div class="container" >
+        <span>
+            <p style="text-align: center;"> 
+                Made by Bruno Dantas | 
+                Source code: <a href="https://github.com/brunotdantas/Sudoku-solver-js">here</a> |
+                version 1.0.0
+            </p>
+        </span>
     </div>
 </div>
 
